@@ -46,8 +46,8 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;E:\\GetdataMandiri\\.local&quot;, &quot;E:\\GetdataMandiri\\.sceenshots&quot;, &quot;E:\\GetdataMandiri\\.settings&quot;, &quot;E:\\GetdataMandiri\\backup&quot;, &quot;E:\\GetdataMandiri\\Data&quot; }]" Name="string1" />
-      <Variable x:TypeArguments="x:Int32" Name="indexOfData" />
+      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;E:\\GetdataMandiri\\.local&quot;, &quot;E:\\GetdataMandiri\\.sceenshots&quot;, &quot;E:\\GetdataMandiri\\.settings&quot;, &quot;E:\\GetdataMandiri\\backup&quot;, &quot;E:\\GetdataMandiri\\Data&quot; }]" Name="arrayString" />
+      <Variable x:TypeArguments="x:Int32" Name="indexOfArrayContainsData" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -56,12 +56,12 @@
     </sap:WorkflowViewStateService.ViewState>
     <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:Int32">[indexOfData]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32">[indexOfArrayContainsData]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Int32">[Array.FindIndex(string1, Function(x) x.Contains("Data"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32">[Array.FindIndex(arrayString, Function(x) x.Contains("\\Data"))]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[indexOfData.ToString]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[indexOfArrayContainsData.ToString]" />
   </Sequence>
 </Activity>
